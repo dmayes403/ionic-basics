@@ -9,11 +9,38 @@ import { UserPage } from './user/user';
 export class UsersPage {
     constructor(
         private navCtrl: NavController
-    ) {
+    ) {}
 
-    }
     onLoadUser(name: string) {
         // this adds the user page to the nav stack and also passes data as well
         this.navCtrl.push(UserPage, {userName: name});
     }
+
+    ionViewCanEnter(): boolean | Promise<boolean> {
+        console.log('ionViewCanEnter');
+        const rnd = Math.random();
+        return rnd > .1;
+    }
+
+    ionViewDidLoad() {
+        console.log('ionViewDidLoad');
+    }
+
+    ionViewWillEnter() {
+        console.log('ionViewWillEnter');
+    }
+
+    ionViewDidEnter() {
+        console.log('ionViewDidEnter');
+    }
+
+    // lesson 32 @ 6:45
+    // ionViewCanLeave(): boolean | Promise<void> {
+    //     const promise = new Promise((resolve, reject) => {
+    //         setTimeout(() => {
+    //             resolve();
+    //         }, 1000);
+    //     });
+    //     return promise;
+    // }
 }

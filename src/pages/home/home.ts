@@ -16,13 +16,20 @@ export class HomePage {
 
     }
 
+    // onGoToUsers() {
+    //     // this.navCtrl.push(UsersPage); // This pushes the UsersPage to the page stack
+    //     this.navCtrl.push(UsersPage, {}, {
+    //         direction: 'back', // default for push is 'forward'
+    //         duration: 2000, // 2 seconds
+    //         easing: 'ease-out'
+    //     });
+    // }
+
     onGoToUsers() {
-        // this.navCtrl.push(UsersPage); // This pushes the UsersPage to the page stack
-        this.navCtrl.push(UsersPage, {}, {
-            direction: 'back', // default for push is 'forward'
-            duration: 2000, // 2 seconds
-            easing: 'ease-out'
-        });
+        this.navCtrl.push(this.usersPage)
+            .catch(error => {
+                console.log('Access denied' + error);
+            })
     }
 
     onGoToShop() {
